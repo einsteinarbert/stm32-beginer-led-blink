@@ -21,4 +21,4 @@
 
 ** Mạch bên dưới vẽ theo kiểu mạch sink dòng, nó cho phép nguồn đi qua tải trước khi trở về chân IC => làm cho IC không bị cháy, hơn nữa đủ nguồn nuôi tải, IC chỉ có vai trò đóng mở chân (-) của mạch để điều khiển I/O
 
-![Led-blink with STM32](circuit-1.png)
+![Led-blink with STM32](circuit.png)
