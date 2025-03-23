@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,11 +50,12 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// function must add void return because C will treat default as INT return, maybe error
+void test(void);
 
 /* USER CODE END 0 */
 
@@ -95,9 +97,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1 | GPIO_PIN_2);
-		HAL_Delay(5000);
+
     /* USER CODE BEGIN 3 */
+		test();
+		HAL_Delay(300);
+		
   }
   /* USER CODE END 3 */
 }
@@ -176,7 +180,12 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+// coding must be inside this block comment for compiler insert into Flash memory
+void test(void) {
+	// this function will be optimized and cannot debug in main.c, must to debug in Disassembly windows above ^
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1 | GPIO_PIN_2);
+	// some unused code will be optimized and removed out of main.c
+}
 /* USER CODE END 4 */
 
 /**
